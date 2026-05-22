@@ -147,7 +147,13 @@ export function Navbar() {
                 >
                   {nav.login}
                 </button>
-                <button className="bg-blue-600 text-white text-sm font-bold tracking-widest px-6 py-3 rounded-xl hover:bg-blue-700 uppercase">
+                <button 
+                  className="bg-blue-600 text-white text-sm font-bold tracking-widest px-6 py-3 rounded-xl hover:bg-blue-700 uppercase"
+                  onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        router.push("/signup");
+                    }}
+                >
                   {nav.getStarted}
                 </button>
               </div>
