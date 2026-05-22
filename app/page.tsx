@@ -19,7 +19,7 @@ export default function LandingPage() {
         <HeroSection />
         <FeatureSection />
         <HowItWorksSection /> 
-        <PricingSection />
+        {/* <PricingSection /> */}
         <CTASection />
         <Footer />
         <style jsx global>{`
