@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, Play } from "lucide-react";
 import { DashboardMockup } from "./DashboardMockup";
 import { useLanguage } from "@/app/components/Context/LanguageContext";
 
 export function HeroSection() {
+  const router = useRouter();
   const { lang, t } = useLanguage();
   const h = t.hero;
 
@@ -61,8 +63,9 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <button 
-                className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 flex items-center justify-center space-x-2"
+              <button
+                type="button" 
+                className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 flex items-center justify-center space-x-2 cursor-pointer"
                 onClick={() => {
                         router.push("/login");
                 }}
@@ -71,6 +74,7 @@ export function HeroSection() {
                 <ChevronRight size={20} />
               </button>
               <button 
+                type="button"
                 className="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all border border-slate-200 flex items-center justify-center space-x-2 group"
                 onClick={() => {
                   // Handle CTA 2 click

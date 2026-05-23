@@ -91,6 +91,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-3">
             <LanguageToggle />
             <button 
+                type="button"
                 onClick={() => {
                     setIsMobileMenuOpen(false);
                     router.push("/login");
@@ -99,7 +100,14 @@ export function Navbar() {
             >
               {nav.login}
             </button>
-            <button className="bg-blue-600 text-white text-xs font-bold tracking-widest px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 uppercase">
+            <button
+                type="button"
+                onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    router.push("/signup");
+                }}
+                className="bg-blue-600 text-white text-xs font-bold tracking-widest px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 uppercase cursor-pointer"
+            >
               {nav.getStarted}
             </button>
           </div>
@@ -139,6 +147,7 @@ export function Navbar() {
               ))}
               <div className="pt-4 border-t border-slate-100 flex flex-col space-y-3">
                 <button 
+                    type="button"
                     onClick={() => {
                         setIsMobileMenuOpen(false);
                         router.push("/login");
@@ -148,7 +157,8 @@ export function Navbar() {
                   {nav.login}
                 </button>
                 <button 
-                  className="bg-blue-600 text-white text-sm font-bold tracking-widest px-6 py-3 rounded-xl hover:bg-blue-700 uppercase"
+                  type="button"
+                  className="bg-blue-600 text-white text-sm font-bold tracking-widest px-6 py-3 rounded-xl hover:bg-blue-700 uppercase cursor-pointer"
                   onClick={() => {
                         setIsMobileMenuOpen(false);
                         router.push("/signup");

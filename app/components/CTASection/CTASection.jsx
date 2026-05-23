@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 import { motion } from "motion/react";
 import { useLanguage } from "@/app/components/Context/LanguageContext";
 
 export function CTASection() {
+  const router = useRouter();
   const { t } = useLanguage();
   const c = t.cta;
 
@@ -29,19 +31,19 @@ export function CTASection() {
               {c.subtext}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button 
-                className="w-full sm:w-auto bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all"
+              <button
+                type="button" 
+                className="w-full sm:w-auto bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all cursor-pointer"
                 onClick={() => {
-                        setIsMobileMenuOpen(false);
                         router.push("/login");
                   }}
               >
                 {c.btn1}
               </button>
-              <button 
-                className="w-full sm:w-auto bg-blue-700 text-white border border-blue-500/50 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-blue-800 transition-all"
+              <button
+                type="button" 
+                className="w-full sm:w-auto bg-blue-700 text-white border border-blue-500/50 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-blue-800 transition-all cursor-pointer"
                 onClick={() => {
-                        setIsMobileMenuOpen(false);
                         window.location.href = "mailto:poruethaikitikam@gmail.com";
                     }}
               >
