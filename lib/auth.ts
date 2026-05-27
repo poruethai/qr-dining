@@ -1,19 +1,30 @@
 import {
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
+  UserCredential,
 } from "firebase/auth";
 
 import { auth } from "./firebase-client";
 
-const googleProvider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
 export async function signInWithGoogle() {
-  const result = await signInWithPopup(auth, googleProvider);
+  await signInWithRedirect(auth, provider);
+}
 
-  return result.user;
+export async function checkRedirectResult() {
+  const result: UserCredential | null =
+    await getRedirectResult(auth);
+
+  if (result && result.user) {
+    return result.user;
+  }
+
+  return null;
 }
 
 export async function logout() {
-  return signOut(auth);
+  await signOut(auth);
 }

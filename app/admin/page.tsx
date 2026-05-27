@@ -9,6 +9,7 @@ import { User } from "firebase/auth";
 import { useRouter } from "next/navigation";
 //import { uploadImage } from "../../app/api/utils/upload";
 import { QRCodeCanvas } from "qrcode.react";
+import { checkRedirectResult } from "@/lib/auth";
 
 import {
   RefreshCw, CheckCircle, Clock, LayoutDashboard, UtensilsCrossed,
@@ -587,6 +588,8 @@ export default function AdminDashboard() {
   const [showUserCard, setShowUserCard] = useState(false);
 
   useEffect(() => {
+    checkRedirectResult();
+    
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
         router.push("/login");
